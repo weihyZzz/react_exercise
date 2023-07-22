@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel引入，用于处理jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            // 构建数据
+            constructor() {
+                super()
+                this.state = {
+                    firstName: 'Hao',
+                    lastName: 'Wei',
+                    books: ['math', 'english', 'music'],
+                    
+                    score1: 80,
+                    score2: 95,
+
+                    Person: {
+                        age: 18,
+                        height: 172
+                    }
+                }
+            }
+            // 渲染内容
+            render() {
+                const { firstName, lastName } = this.state
+                const { score1, score2 } = this.state
+                const { books } = this.state
+                const fullName = firstName + lastName
+                
+                const liELs = books.map(book => <li>{book}</li>)
+                return (
+                    <div>
+                        <div>
+                            <h1>JSX插入表达式</h1>
+                            <h2>{firstName + '' + lastName}</h2>
+                            <h2>{fullName}</h2>
+                            <h2>{3 + 5}</h2>
+                        </div>
+                        <div>
+                            <h1>JSX插入三元运算符</h1>
+                            <h2>{score1 > 90 ? '优秀':'良好'}</h2>
+                            <h2>{score2 > 90 ? '优秀':'良好'}</h2>
+                        </div>
+                        <div>
+                            <h1>JSX调用方法</h1>
+                            <ul>{liELs}</ul>
+                            <ul>{books.map(book => <li>{book}</li>)}</ul>
+                            <ul>{this.getBooks()}</ul>
+                        </div>
+                    </div>
+                )
+            }
+            getBooks() {
+                const liEls = this.state.books.map(book => <li>{book}</li>)
+                return liEls
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector('#root'))
+        root.render(<App/>)
+    </script>
+</body>
+</html>

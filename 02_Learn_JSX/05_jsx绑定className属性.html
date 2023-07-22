@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel引入，用于处理jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            // 构建数据
+            constructor() {
+                super()
+                this.state = {
+                    message: 'Hello',
+                    isActive: false
+                }
+            }
+            // 渲染内容
+            render() {
+                const { isActive } = this.state
+                {/*1.className属性绑定方法一：模版字符串*/}
+                const h2Class = `abc cba ${isActive? 'active':''}`
+                {/*2.className属性绑定方法二：样式数组*/}
+                const h2ClassArray = ['abc', 'cba']
+                if (isActive) {
+                    h2ClassArray.push('active')
+                }
+                const h2Class2 = h2ClassArray.join(" ")
+                return (
+                    <div>
+                        <h2 className={h2Class}>{this.state.message}</h2>
+                        <h2 className={h2Class2}>{this.state.message}</h2>
+                    </div>
+                )
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector('#root'))
+        root.render(<App/>)
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel引入，用于处理jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // 采取类组件方式实现计数器案例
+        class App extends React.Component {
+            // 构建数据
+            constructor() {
+                super()
+                this.state = {
+                    count: 0
+                }
+                this.addCount = this.addCount.bind(this)
+                this.subCount = this.subCount.bind(this)
+            }
+
+            // 用户自定义方法
+            addCount() {
+                let num = this.state.count + 1
+                this.setState({
+                    count: num
+                })
+            }
+            subCount() {
+                let num = this.state.count - 1
+                this.setState({
+                    count: num
+                })
+            }
+
+            // 渲染内容
+            render() {
+                return (
+                    <div>
+                        <h2>{this.state.count}</h2>
+                        <button onClick={this.addCount}>+1</button>
+                        <button onClick={this.subCount}>-1</button>
+                    </div>
+                )
+            }
+        }
+
+        const root = ReactDOM.createRoot(document.querySelector('#root'))
+        root.render(<App/>)
+    </script>
+</body>
+</html>

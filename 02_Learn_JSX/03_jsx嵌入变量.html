@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel引入，用于处理jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            // 构建数据
+            constructor() {
+                super()
+                this.state = {
+                    message: "hello world",
+                    score: 100,
+                    books: ['math', 'english', 'music'],
+
+                    nullVal: null,
+                    unVal: undefined,
+                    isOpen: true,
+
+                    Person: {
+                        age: 18,
+                        height: 172
+                    }
+                }
+            }
+            // 渲染内容
+            render() {
+                return (
+                    <div>
+                        <div>
+                            <h1>变量为Number、String、Array类型</h1>
+                            <h2>{this.state.message}</h2>
+                            <h2>{this.state.score}</h2>
+                            <h2>{this.state.books}</h2>
+                        </div>
+                        <div>
+                            <h1>null、undefined、Boolean类型</h1>
+                            <h2>{this.state.nullVal}</h2>
+                            <h2>{this.state.nullVal+ ""}</h2>
+                            <h2>{this.state.unVal}</h2>
+                            <h2>{this.state.isOpen}</h2>
+                        </div>
+
+                        <div>
+                            <h1>Object类型</h1>
+                            <h2>{this.state.Person.age}</h2>
+                            <h2>{this.state.Person.height}</h2>
+                        </div>
+                    </div>
+                )
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector('#root'))
+        root.render(<App/>)
+    </script>
+</body>
+</html>
