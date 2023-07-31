@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel引入，用于处理jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            // 构建数据
+            constructor() {
+                super()
+                this.state = {
+                    message: "hello world",
+                    count: 100
+                }
+                this.btn1Click = this.btn1Click.bind(this)
+            }
+            // 绑定方式一：bind绑定
+            btn1Click() {
+                console.log('btn1Click的this', this);
+                // 将this绑定到组件实例后，就可以访问其中的方法和属性
+                this.setState({count: this.state.count + 1})
+            }
+            // 绑定方式二：ES6 class fields方式
+            btn2Click = () => {
+                console.log('btn2Click的this', this);
+                this.setState({count: this.state.count + 10})
+            }
+
+            // 绑定方式三：箭头函数
+            btn3Click() {
+                console.log('btn3Click的this', this);
+                this.setState({count: 1000})
+            }
+            // 渲染内容
+            render() {
+                return (
+                    <div>
+                        <h2>{this.state.count}</h2>
+                        {/*this绑定方式一：bind绑定*/}
+                        <button onClick={this.btn1Click}>按钮1</button>
+                        {/*this绑定方式二：ES6 class fields*/}
+                        <button onClick={this.btn2Click}>按钮2</button>
+                        {/*this绑定方式三：传入箭头函数*/}
+                        <button onClick={() => this.btn3Click()}>按钮2</button>
+                    </div>
+                )
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector('#root'))
+        root.render(<App/>)
+    </script>
+</body>
+</html>
