@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel引入，用于处理jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .item {
+            width: 600px;
+            height: 80px;
+            border: 1px solid skyblue;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            // jsx列表渲染，需要借助高阶函数
+            constructor() {
+                super()
+                this.state = {
+                    stuArrays:[
+                        {name: '蔡徐坤', age: 20},
+                        {name: 'Loopy', age: 12},
+                        {name: '肖战', age: 16},
+                        {name: '王源', age: 19},
+                    ]
+                }
+            }
+            // 渲染内容
+            render() {
+                const { stuArrays } = this.state
+                return (
+                    <div>
+                        {/*map高阶函数渲染列表*/}
+                        <div className="list">
+                            {
+                                stuArrays.map(item => {
+                                    return (
+                                        <div className="item" key={item.name}>
+                                            <h3>姓名: {item.name}</h3>
+                                            <h3>年龄: {item.age}</h3>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        {/*filter高阶函数过滤原始数据列表*/}
+                        <h2>只显示年龄大于18岁的</h2>
+                        <div className="list">
+                            {
+                                stuArrays.filter(item => {return item.age > 18}).map(item => {
+                                    return (
+                                        <div className="item" key={item.name}>
+                                            <h3>姓名: {item.name}</h3>
+                                            <h3>年龄: {item.age}</h3>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                         {/*slice高阶函数截取原始数据列表*/}
+                        <h2>只显示前两条数据</h2>
+                        <div className="list">
+                            {
+                                stuArrays.slice(0,2).map(item => {
+                                    return (
+                                        <div className="item" key={item.name}>
+                                            <h3>姓名: {item.name}</h3>
+                                            <h3>年龄: {item.age}</h3>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                )
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector('#root'))
+        root.render(<App/>)
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel引入，用于处理jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            // 构建数据
+            constructor() {
+                super()
+                this.state = {
+                    movies: ['入殓师', '奥本海默', '芭比'],
+                    currentIndex: 0
+                }
+            }
+            itemClick(index) {
+                console.log('当前项index', index);
+                this.setState({
+                    currentIndex: index
+                })
+            }
+            // 渲染内容
+            render() {
+                const { movies, currentIndex } = this.state
+                const liEls = movies.map((item, index) => {
+                                    return (
+                                        <li 
+                                            className={ currentIndex === index ? 'active': ''}
+                                            key={item}
+                                            onClick={() => this.itemClick(index)}
+                                        >
+                                            {item}
+                                        </li>
+                                    )
+                                })
+                return (
+                    <div><ul>{liEls}</ul></div>
+                )
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector('#root'))
+        root.render(<App/>)
+    </script>
+</body>
+</html>

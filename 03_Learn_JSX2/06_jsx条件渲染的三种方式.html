@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel引入，用于处理jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            // 构建数据
+            constructor() {
+                super()
+                this.state = {
+                    isReady: true,
+                    person: {
+                        name: '章三',
+                        age: 18
+                    }
+                }
+            }
+            
+            // 渲染内容
+            render() {
+                const { isReady, person } = this.state
+                
+                // 1.条件渲染方式1: if判断
+                let showElement = null
+                if (isReady) {
+                    showElement = <h2>准备好</h2>
+                } else {
+                    showElement = <h2>准备中</h2>
+                }
+                return (
+                    <div>
+                        {/*jsx条件渲染方式一：if*/}
+                        {showElement}
+                        {/*jsx条件渲染方式二：三元运算符*/}
+                        {isReady? <h2>准备好</h2>:<h2>准备中</h2>}
+                        {/*jsx条件渲染方式三：&&与运算符*/}
+                        {/*适用场景：person有值的情况下再进行展示*/}
+                        { person && <div>{person.name + '' + person.age}</div> }
+                    </div>
+                )
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector('#root'))
+        root.render(<App/>)
+    </script>
+</body>
+</html>
