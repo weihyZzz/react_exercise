@@ -63,6 +63,12 @@
           changeBooks[index].count += count;
           this.setState({ books: changeBooks });
         }
+        // 删除某一项图书
+        deleteBook(index) {
+          const changeBooks = [...this.state.books];
+          changeBooks.splice(index, 1);
+          this.setState({ books: changeBooks });
+        }
         // 渲染内容
         render() {
           const { books } = this.state;
@@ -77,6 +83,7 @@
           let totalPrice = books.reduce((preValue, item) => {
             return preValue + item.price * item.count;
           }, 0);
+          let len = books.length;
           return (
             <div>
               <table>
@@ -109,7 +116,9 @@
                           </button>
                         </td>
                         <td>
-                          <button>删除</button>
+                          <button onClick={() => this.deleteBook(index)}>
+                            删除
+                          </button>
                         </td>
                       </tr>
                     );
