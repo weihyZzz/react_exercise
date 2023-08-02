@@ -25,33 +25,32 @@
           super();
           this.state = {
             message: "hello world",
-            isShow: true,
           };
-        }
-        buttonClick() {
-          this.setState({ isShow: !this.state.isShow });
         }
         // 渲染内容
         render() {
-          const { isShow, message } = this.state;
-          let showElement = null;
-          if (isShow) {
-            showElement = <h2>{message}</h2>;
-          } else {
-            showElement = null;
-          }
-          return (
+          const element = (
             <div>
-              {/*--------------------实现类似`v - if`的效果-------------------------*/}
-              {/*写法一*/}
-              <div>{showElement}</div>
-              {/*写法二(仔细体会这种&&逻辑运算的写法，满足条件则显示)*/}
-              <div>{isShow && <h2>{message}</h2>}</div>
-              <button onClick={this.buttonClick.bind(this)}>按钮</button>
-              {/*--------------------实现类似`v - show`的效果(仅仅隐藏，而不是重新插入新元素)-------------------------*/}
-              <h2 style={{ display: isShow ? "block" : "none" }}>{message}</h2>
+              <div className="header">header</div>
+              <div className="content">
+                <div>内容一</div>
+                <div>内容二</div>
+              </div>
+              <div className="footer">footer</div>
             </div>
           );
+          console.log("element元素：", element);
+          return element;
+          //   return (
+          //     <div>
+          //       <div className="header">header</div>
+          //       <div className="content">
+          //         <div>内容一</div>
+          //         <div>内容二</div>
+          //       </div>
+          //       <div className="footer">footer</div>
+          //     </div>
+          //   );
         }
       }
       const root = ReactDOM.createRoot(document.querySelector("#root"));

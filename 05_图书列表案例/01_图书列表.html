@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- babel引入，用于处理jsx -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="./data.js"></script>
+    <style>
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+      }
+      tr,
+      td {
+        border: 1px solid black;
+      }
+      td {
+        width: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        // 构建数据
+        constructor() {
+          super();
+          this.state = {
+            message: "hello world",
+            books: [
+              { id: 1, name: "react学习手册", price: 18, count: 1 },
+              { id: 2, name: "你不知道的JavaScript", price: 20, count: 1 },
+              { id: 3, name: "Node.js实战", price: 10, count: 1 },
+            ],
+          };
+        }
+        // 方式三：封装一个函数来计算总价格
+        getTotalPrice() {
+          console.log("getTotalPrice中的this", this);
+          let totalPrice = this.state.books.reduce((preValue, item) => {
+            return preValue + item.price * item.count;
+          }, 0);
+          return totalPrice;
+        }
+        // 更改图书数量
+        changeCount(index, count) {
+          // 修改序号index的图书数量, count: +1 -1
+          // 注意： 修改state中的变量时，不可以直接修改
+          const changeBooks = [...this.state.books];
+          changeBooks[index].count += count;
+          this.setState({ books: changeBooks });
+        }
+        // 渲染内容
+        render() {
+          const { books } = this.state;
+          console.log(books);
+          //   方式一： for循环计算总价格
+          //   let totalPrice = 0;
+          //   for (let i = 0; i < books.length; i++) {
+          //     totalPrice += books[i].count * books[i].price;
+          //   }
+
+          //   方式二:采取reduce方式计算总价格
+          let totalPrice = books.reduce((preValue, item) => {
+            return preValue + item.price * item.count;
+          }, 0);
+          return (
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td>序号</td>
+                    <td>书名</td>
+                    <td>价格</td>
+                    <td>数量</td>
+                    <td>操作</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {books.map((item, index) => {
+                    return (
+                      <tr key={item.name}>
+                        <td>{item.id}</td>
+                        <td>{item.name}</td>
+                        <td>{item.price}</td>
+                        <td>
+                          <button
+                            disabled={item.count < 1}
+                            onClick={() => this.changeCount(index, -1)}
+                          >
+                            -
+                          </button>
+                          {item.count}
+                          <button onClick={() => this.changeCount(index, 1)}>
+                            +
+                          </button>
+                        </td>
+                        <td>
+                          <button>删除</button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              {/*方式二展示总价格*/}
+              <h2>总价格 {"$" + totalPrice}</h2>
+              {/*方式三展示总价格*/}
+              <h2>总价格 {"$" + this.getTotalPrice()}</h2>
+            </div>
+          );
+        }
+      }
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

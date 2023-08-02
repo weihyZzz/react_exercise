@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- react CDN引入 -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      class App extends React.Component {
+        // 构建数据
+        constructor() {
+          super();
+          this.state = {
+            message: "hello world",
+          };
+        }
+        // 渲染内容
+        render() {
+          // react原生创建元素的方式
+          const element = /*#__PURE__*/ React.createElement(
+            "div",
+            null,
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "header",
+              },
+              "header"
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "content",
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                null,
+                "\u5185\u5BB9\u4E00"
+              ),
+              /*#__PURE__*/ React.createElement(
+                "div",
+                null,
+                "\u5185\u5BB9\u4E8C"
+              )
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "footer",
+              },
+              "footer"
+            )
+          );
+          console.log("element元素(虚拟DOM对象)", element);
+          return element;
+        }
+      }
+      // 2. 创建root并渲染App组件
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(React.createElement(App, null));
+    </script>
+  </body>
+</html>
