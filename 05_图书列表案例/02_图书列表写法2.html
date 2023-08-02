@@ -69,6 +69,7 @@
           changeBooks.splice(index, 1);
           this.setState({ books: changeBooks });
         }
+        // 直接将要渲染的内容放到一个函数中返回
         renderBooks() {
           const { books } = this.state;
           return (
@@ -127,10 +128,8 @@
         // 渲染内容
         render() {
           const { books } = this.state;
-
           let len = books.length;
           let showElement = null;
-
           return len > 0 ? this.renderBooks() : this.renderEmptyBooks();
         }
       }
