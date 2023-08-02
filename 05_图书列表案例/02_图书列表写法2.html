@@ -85,7 +85,6 @@
           }, 0);
           let len = books.length;
           let showElement = null;
-          // books长度为0时则不显示表格，显示一行字
           if (len) {
             showElement = (
               <div>
@@ -141,7 +140,7 @@
               </div>
             );
           }
-          return showElement;
+          return <div>{showElement}</div>;
         }
       }
       const root = ReactDOM.createRoot(document.querySelector("#root"));
