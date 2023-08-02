@@ -69,78 +69,69 @@
           changeBooks.splice(index, 1);
           this.setState({ books: changeBooks });
         }
+        renderBooks() {
+          const { books } = this.state;
+          return (
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td>序号</td>
+                    <td>书名</td>
+                    <td>价格</td>
+                    <td>数量</td>
+                    <td>操作</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {books.map((item, index) => {
+                    return (
+                      <tr key={item.name}>
+                        <td>{item.id}</td>
+                        <td>{item.name}</td>
+                        <td>{item.price}</td>
+                        <td>
+                          <button
+                            disabled={item.count < 1}
+                            onClick={() => this.changeCount(index, -1)}
+                          >
+                            -
+                          </button>
+                          {item.count}
+                          <button onClick={() => this.changeCount(index, 1)}>
+                            +
+                          </button>
+                        </td>
+                        <td>
+                          <button onClick={() => this.deleteBook(index)}>
+                            删除
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              {/*方式三展示总价格*/}
+              <h2>总价格 {"$" + this.getTotalPrice()}</h2>
+            </div>
+          );
+        }
+        renderEmptyBooks() {
+          return (
+            <div>
+              <h2>图书列表为空 请添加书籍</h2>
+            </div>
+          );
+        }
         // 渲染内容
         render() {
           const { books } = this.state;
-          console.log(books);
-          //   方式一： for循环计算总价格
-          //   let totalPrice = 0;
-          //   for (let i = 0; i < books.length; i++) {
-          //     totalPrice += books[i].count * books[i].price;
-          //   }
 
-          //   方式二:采取reduce方式计算总价格
-          let totalPrice = books.reduce((preValue, item) => {
-            return preValue + item.price * item.count;
-          }, 0);
           let len = books.length;
           let showElement = null;
-          if (len) {
-            showElement = (
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <td>序号</td>
-                      <td>书名</td>
-                      <td>价格</td>
-                      <td>数量</td>
-                      <td>操作</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {books.map((item, index) => {
-                      return (
-                        <tr key={item.name}>
-                          <td>{item.id}</td>
-                          <td>{item.name}</td>
-                          <td>{item.price}</td>
-                          <td>
-                            <button
-                              disabled={item.count < 1}
-                              onClick={() => this.changeCount(index, -1)}
-                            >
-                              -
-                            </button>
-                            {item.count}
-                            <button onClick={() => this.changeCount(index, 1)}>
-                              +
-                            </button>
-                          </td>
-                          <td>
-                            <button onClick={() => this.deleteBook(index)}>
-                              删除
-                            </button>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-                {/*方式二展示总价格*/}
-                <h2>总价格 {"$" + totalPrice}</h2>
-                {/*方式三展示总价格*/}
-                <h2>总价格 {"$" + this.getTotalPrice()}</h2>
-              </div>
-            );
-          } else {
-            showElement = (
-              <div>
-                <h2>图书列表为空 请添加书籍</h2>
-              </div>
-            );
-          }
-          return <div>{showElement}</div>;
+
+          return len > 0 ? this.renderBooks() : this.renderEmptyBooks();
         }
       }
       const root = ReactDOM.createRoot(document.querySelector("#root"));
