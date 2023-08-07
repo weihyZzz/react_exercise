@@ -19,12 +19,12 @@ class MainProductList extends Component {
     )
   }
 }
-// 参数验证
+// MainProductList组件传入的props类型进行验证
 MainProductList.propTypes = {
   productList: PropTypes.array,
   title: PropTypes.string
 }
-// 参数默认值
+// MainProductList组件传入的props设置默认值
 MainProductList.defaultProps = {
   productList: [],
   title: "默认标题"
