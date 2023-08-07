@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './App';
 
 // import App from './02_react生命周期/App'
-import App from './03_组件开发嵌套关系/App';
+// import App from './03_组件开发嵌套关系/App';
+import App from './04_父子组件通信/App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <App/>
