@@ -21,7 +21,9 @@ class Main extends Component {
     const { productList } = this.state
     return (
       <div className='main'>
-        <MainProductList productList={productList}/>
+        <MainProductList productList={productList} title={"商品列表"}/>
+        {/* 验证组件参数的默认值是否生效 */}
+        <MainProductList/>
       </div>
     )
   }

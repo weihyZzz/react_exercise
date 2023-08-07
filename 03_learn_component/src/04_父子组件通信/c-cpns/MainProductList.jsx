@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-
+import PropTypes from 'prop-types'
 class MainProductList extends Component {
   render() {
-    const { productList } = this.props
+    const { productList, title } = this.props
     return (
       <div>
-        <h2>商品列表</h2>
+        <h2>{title}</h2>
         <ul>
           {
             productList.map(item => {
@@ -19,5 +19,14 @@ class MainProductList extends Component {
     )
   }
 }
-
+// 参数验证
+MainProductList.propTypes = {
+  productList: PropTypes.array,
+  title: PropTypes.string
+}
+// 参数默认值
+MainProductList.defaultProps = {
+  productList: [],
+  title: "默认标题"
+}
 export default MainProductList
