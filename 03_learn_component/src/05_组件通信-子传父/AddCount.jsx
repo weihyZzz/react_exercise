@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class AddCount extends Component {
   addCount(count) {
+    // addClick是父组件传递给子组件的函数，子组件调用该函数
     const { addClick } = this.props;
     addClick(count);
   }
