@@ -1,0 +1,18 @@
+.nav-bar {
+    display: flex;
+    text-align: center;
+    height: 50px;
+    align-items: center;
+}
+.nav-bar .left {
+    flex: 1;
+    background-color: pink;
+}
+.nav-bar .center {
+    flex: 1;
+    background-color: blue;
+}
+.nav-bar .right {
+    flex: 1;
+    background-color: red;
+}
