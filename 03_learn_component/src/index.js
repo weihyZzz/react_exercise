@@ -11,11 +11,12 @@ import ReactDOM from 'react-dom/client';
 // import App from './07_组件的插槽实现/App'
 // import App from './08_组件作用域插槽实现/App'
 // import App from './09_非父子通信-Context/App'
-import App from './10_非父子通信-EventBus/App'
+// import App from './10_非父子通信-EventBus/App'
+import App from './11_setState详细使用/App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <App/>
+    <App name="weihy"/>
 );
 
 // If you want to start measuring performance in your app, pass a function
