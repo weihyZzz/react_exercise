@@ -4,13 +4,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "HelloReact",
       count: 0,
     };
-  }
-  changeText() {
-    // 1.setState基本使用
-    this.setState({ message: "Hello USTB" });
   }
   increment() {
     console.log("--------");
@@ -39,11 +34,9 @@ class App extends Component {
   }
   render() {
     console.log("执行render函数");
-    const { message, count } = this.state;
+    const { count } = this.state;
     return (
       <div>
-        <h2>{message}</h2>
-        <button onClick={(e) => this.changeText()}>改变文本</button>
         <h2>{count}</h2>
         <button onClick={(e) => this.increment()}>+1</button>
       </div>

@@ -12,7 +12,9 @@ import ReactDOM from 'react-dom/client';
 // import App from './08_组件作用域插槽实现/App'
 // import App from './09_非父子通信-Context/App'
 // import App from './10_非父子通信-EventBus/App'
-import App from './11_setState详细使用/App'
+// import App from './11_setState详细使用/04_setState如何实现同步'
+// import App from './11_setState详细使用/01_jsx三种写法'
+import App from './11_setState详细使用/02_setState连续更新状态'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
