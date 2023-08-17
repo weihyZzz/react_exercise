@@ -16,7 +16,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './11_setState详细使用/01_jsx三种写法'
 // import App from './11_setState详细使用/02_setState连续更新状态'
 
-import App from './12_render函数的优化/App'
+// import App from './12_render函数的优化/App'
+import App from './13_PureComponent的使用/App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
