@@ -19,7 +19,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './12_render函数的优化/App'
 // import App from './13_PureComponent的使用/App'
 // import App from './14_数据不可变性/App'
-import App from './15_ref获取DOM/App'
+// import App from './15_ref获取DOM/App'
+import App from './16_ref获取组件实例/App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
