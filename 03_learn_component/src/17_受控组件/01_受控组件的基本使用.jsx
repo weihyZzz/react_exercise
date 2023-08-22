@@ -15,11 +15,14 @@ export class App extends PureComponent {
     const { message } = this.state;
     return (
       <div>
+        {/* 受控组件 */}
         <input
           type="text"
           value={message}
           onChange={(e) => this.inputChange(e)}
         />
+        {/* 非受控组件 */}
+        <input type="text" />
         <h2>message: {message}</h2>
       </div>
     );
