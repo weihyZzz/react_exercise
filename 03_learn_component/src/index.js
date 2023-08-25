@@ -23,7 +23,9 @@ import ReactDOM from 'react-dom/client';
 // import App from './16_ref获取组件实例/01_获取类组件实例'
 // import App from './17_受控组件/01_受控组件的基本使用'
 // import App from './17_受控组件/04_select的单选和多选'
-import App from './17_受控组件/05_非受控组件'
+// import App from './17_受控组件/05_非受控组件'
+// import App from './18_高阶组件/01_简单的高阶组件'
+import App from './18_高阶组件/02_高阶组件应用场景_props'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

@@ -18,7 +18,7 @@ export class App extends PureComponent {
     console.log("是否同意:", this.state.isAgree);
   }
   handelChange(event) {
-    // 多个表单公用一个函数
+    // 多个表单共用一个函数
     // console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
   }
