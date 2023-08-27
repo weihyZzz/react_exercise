@@ -26,6 +26,7 @@ import ReactDOM from 'react-dom/client';
 // import App from './17_受控组件/05_非受控组件'
 // import App from './18_高阶组件/01_简单的高阶组件'
 // import App from './18_高阶组件/02_高阶组件应用场景_props'
+// import App from './18_高阶组件/03_高阶组件应用场景_Context'
 import App from './18_高阶组件/App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

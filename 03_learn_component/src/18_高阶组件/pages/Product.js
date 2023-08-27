@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import ThemeContext from '../context/theme_context'
+
 import withTheme from '../hoc/with_theme'
 
 // export class Product extends PureComponent {
@@ -22,6 +22,6 @@ export class Product extends PureComponent {
         <div>Product: {color}-{size}</div>
       )
     }
-  }
+}
 
 export default withTheme(Product)
