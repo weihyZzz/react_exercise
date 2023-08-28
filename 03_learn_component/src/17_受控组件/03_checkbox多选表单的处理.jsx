@@ -19,7 +19,6 @@ export class App extends PureComponent {
     event.preventDefault();
     // 2.获取所有表单数据
     console.log("获取所有输入内容");
-    console.log(this.state.username, this.state.password);
     console.log("是否同意:", this.state.isAgree);
     console.log(
       "用户爱好:",
@@ -27,10 +26,6 @@ export class App extends PureComponent {
         .filter((item) => item.isChecked)
         .map((item) => item.value)
     );
-  }
-  handelChange(event) {
-    // console.log(event.target.name);
-    this.setState({ [event.target.name]: event.target.value });
   }
   handleCheckChange(event) {
     // checkbox的值要从checked取
@@ -42,34 +37,10 @@ export class App extends PureComponent {
     this.setState({ hobbies });
   }
   render() {
-    const { username, password, isAgree, hobbies } = this.state;
+    const { isAgree, hobbies } = this.state;
     return (
       <div>
         <form onSubmit={(e) => this.handelSubmitClick(e)}>
-          <div>
-            <label htmlFor="username">
-              用户名:
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={username}
-                onChange={(e) => this.handelChange(e)}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              密码：
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={password}
-                onChange={(e) => this.handelChange(e)}
-              />
-            </label>
-          </div>
           <label htmlFor="agree">
             <input
               type="checkbox"
