@@ -1,3 +1,13 @@
+/* 进入动画 */
+.ustb-appear {
+    transform: translateX(-150px);
+}
+.ustb-appear-active {
+    transform: translateX(0);
+    transition: transform 2s ease;
+}
+
+
 .ustb-enter {
     opacity: 0;
 }
@@ -12,3 +22,4 @@
     opacity: 0;
     transition: opacity 2s ease;
 }
+

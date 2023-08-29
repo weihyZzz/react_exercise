@@ -5,7 +5,7 @@ export class App extends PureComponent {
   constructor() {
     super();
     this.state = {
-      isShow: false,
+      isShow: true,
     };
   }
   render() {
@@ -21,6 +21,10 @@ export class App extends PureComponent {
           unmountOnExit={true}
           classNames="ustb"
           timeout={2000}
+          appear
+          onEnter={(e) => console.log("开始进入动画")}
+          onEntering={(e) => console.log("执行进入动画")}
+          onEntered={(e) => console.log("执行进入结束")}
         >
           <h2>Hello USTB</h2>
         </CSSTransition>
