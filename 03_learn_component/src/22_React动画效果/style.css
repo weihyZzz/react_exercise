@@ -1,0 +1,14 @@
+.ustb-enter {
+    opacity: 0;
+}
+.ustb-enter-active {
+    opacity: 1;
+    transition: opacity 2s ease;
+}
+.ustb-exit {
+    opacity: 1;
+}
+.ustb-exit-active {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
