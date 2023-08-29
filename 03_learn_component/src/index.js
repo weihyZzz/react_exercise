@@ -29,7 +29,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './18_高阶组件/03_高阶组件应用场景_Context'
 // import App from './18_高阶组件/05_高阶组件应用场景_生命周期'
 // import App from './17_受控组件/03_checkbox多选表单的处理'
-import App from './19_React的Portal/App'
+// import App from './19_React的Portal/App'
+import App from './20_React的Fragment/App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

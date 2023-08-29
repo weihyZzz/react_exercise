@@ -12,7 +12,7 @@ function logRenderTime(OriginComponent) {
             console.log(OriginComponent.name, '页面','渲染时间', interVal,'ms');
         }
         render() {
-            return <OriginComponent />
+            return <OriginComponent {...this.props}/>
         }
     }
 }
