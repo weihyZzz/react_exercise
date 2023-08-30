@@ -33,7 +33,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './20_React的Fragment/App'
 // import App from './21_React的严格模式/App'
 // import App from './22_React动画效果/01_CSSTransition/App'
-import App from './22_React动画效果/02_SwitchTransition/App'
+// import App from './22_React动画效果/02_SwitchTransition/App'
+import App from './22_React动画效果/03_TransitionGroup/App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
