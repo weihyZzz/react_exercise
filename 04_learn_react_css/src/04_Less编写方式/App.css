@@ -1,0 +1,11 @@
+.section {
+  border: 1px solid pink;
+}
+.section .title {
+  font-size: 30px;
+  color: pink;
+}
+.section .content {
+  font-size: 18px;
+  color: pink;
+}
