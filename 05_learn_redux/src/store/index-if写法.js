@@ -13,14 +13,12 @@ const initState = {
 // 函数返回值：作为store之后存储的state
 function reducer(state = initState, action) {
     // 如果action类型为修改名字，则对应执行
-    switch(action.type) {
-        case "change_name":
-            return { ...state, name: action.name }
-        case "change_count":
-            return { ...state, counter: action.counter }
-        default:
-            return state
+    if (action.type === "change_name") {
+        return { ...state, name: action.name }
+    } else if (action.type === "change_count") {
+        return { ...state, counter: action.counter }
     }
+    return state
 }
 
 // 创建store
