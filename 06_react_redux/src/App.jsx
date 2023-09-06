@@ -34,10 +34,10 @@ export class App extends PureComponent {
               <button onClick={(e) => this.addNumber(1)}>+1</button>
               <button onClick={(e) => this.addNumber(5)}>+5</button>
             </div>
-          </div>
-          <Home />
+            <Home />
 
-          <Profile />
+            <Profile />
+          </div>
         </header>
       </div>
     );
