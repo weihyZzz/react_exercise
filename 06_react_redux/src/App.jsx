@@ -5,6 +5,7 @@ import React, { PureComponent } from "react";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import store from "./store";
+import About from "./pages/About";
 export class App extends PureComponent {
   constructor() {
     super();
@@ -35,8 +36,8 @@ export class App extends PureComponent {
               <button onClick={(e) => this.addNumber(5)}>+5</button>
             </div>
             <Home />
-
             <Profile />
+            <About />
           </div>
         </header>
       </div>
