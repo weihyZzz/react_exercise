@@ -14,3 +14,9 @@ export const subNumberAction = (num) => {
         num
     }
 }
+export const changeGoodsAction = (goods) => {
+    return {
+        type: actionTypes.CHANGE_GODDS,
+        goods
+    }
+}

@@ -24,6 +24,9 @@
   width: 300px;
   border: 3px solid #ffffff;
 }
+.content {
+  flex: 4;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
