@@ -8,6 +8,7 @@ import store from "./store";
 import About from "./pages/About";
 import Category from "./pages/Category";
 import Goods from "./pages/Goods";
+import User from "./pages/User";
 export class App extends PureComponent {
   constructor() {
     super();
@@ -44,6 +45,7 @@ export class App extends PureComponent {
           <div className="content">
             <Category />
             <Goods />
+            <User />
           </div>
         </header>
       </div>

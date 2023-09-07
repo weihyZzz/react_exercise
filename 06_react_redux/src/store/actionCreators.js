@@ -25,6 +25,13 @@ export const changeGoodsAction = (goods) => {
     }
 }
 
+export const changeUserAction = (user) => {
+    return {
+        type: actionTypes.CHANGE_USER,
+        user
+    }
+}
+
 export const fetchGoodsAction = () => {
     function getGoodsData(dispatch) {
         // 执行异步操作，网络请求
@@ -38,4 +45,18 @@ export const fetchGoodsAction = () => {
     }
     // 通过中间件，action也可以返回函数，不然只能返回普通对象
     return getGoodsData
+}
+
+// 用户列表/users/list，post请求
+export const fetchUserAction = () => {
+    function getUserData(dispatch) {
+        // 进行网络请求
+        const path = url + '/users/list'
+        axios.post(path).then((res) => {
+            console.log('用户信息', res.data.data.list);
+            const user = res.data.data.list
+            dispatch(changeUserAction(user))
+        })
+    }
+    return getUserData
 }
