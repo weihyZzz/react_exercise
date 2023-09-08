@@ -1,10 +1,7 @@
 import React, { PureComponent } from "react";
 
 import { connect } from "react-redux";
-import {
-  fetchGoodsAction,
-  fetchUserAction,
-} from "../store/netdata/actionCreators";
+import { fetchGoodsAction, fetchUserAction } from "../store/actionCreators";
 // Category页面用来获取数据
 export class Category extends PureComponent {
   componentDidMount() {

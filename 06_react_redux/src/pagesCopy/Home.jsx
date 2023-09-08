@@ -1,18 +1,18 @@
 import React, { PureComponent } from "react";
-import { addNumberAction } from "../store/counter/actionCreators";
+import { addNumberAction } from "../store/actionCreators";
 import store from "../store/index";
 
 export class Home extends PureComponent {
   constructor() {
     super();
     this.state = {
-      counter: store.getState().counter.counter,
+      counter: store.getState().counter,
     };
   }
   componentDidMount() {
     // 在组件挂载时进行store内数据的订阅
     store.subscribe(() => {
-      const state = store.getState().counter;
+      const state = store.getState();
       this.setState({ counter: state.counter });
     });
   }

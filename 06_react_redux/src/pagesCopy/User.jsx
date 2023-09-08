@@ -22,7 +22,7 @@ export class User extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.netdata.user,
+    user: state.user,
   };
 };
 export default connect(mapStateToProps)(User);

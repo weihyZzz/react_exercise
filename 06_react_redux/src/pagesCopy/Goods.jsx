@@ -18,7 +18,7 @@ export class Goods extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    goods: state.netdata.goods,
+    goods: state.goods,
   };
 };
 export default connect(mapStateToProps)(Goods);

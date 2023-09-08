@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { addNumberAction } from "./store/actionCreators";
+import { addNumberAction } from "./store/counter/actionCreators";
 import React, { PureComponent } from "react";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -13,13 +13,13 @@ export class App extends PureComponent {
   constructor() {
     super();
     this.state = {
-      counter: store.getState().counter,
+      counter: store.getState().counter.counter,
     };
   }
   componentDidMount() {
     // 在组件挂载时进行store内数据的订阅
     store.subscribe(() => {
-      const state = store.getState();
+      const state = store.getState().counter;
       this.setState({ counter: state.counter });
     });
   }

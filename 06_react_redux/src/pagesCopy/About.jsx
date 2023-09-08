@@ -1,10 +1,7 @@
 // 在About页面中演示connect的用法
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import {
-  addNumberAction,
-  subNumberAction,
-} from "../store/counter/actionCreators";
+import { addNumberAction, subNumberAction } from "../store/actionCreators";
 export class About extends PureComponent {
   //    通过mapDispatchToProps的映射，从props中取用函数来触发action
   addNum(num) {
@@ -34,7 +31,7 @@ export class About extends PureComponent {
 // 将 Redux store 中的数据映射到组件的 props 上
 const mapStateToProps = (state) => {
   return {
-    counter: state.counter.counter,
+    counter: state.counter,
   };
 };
 // 将  dispatch 函数映射到 React 组件的 props 上

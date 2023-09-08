@@ -1,18 +1,16 @@
 import React, { PureComponent } from "react";
-import { addNumberAction } from "../store/counter/actionCreators";
-import store from "../store/index";
-
-export class Home extends PureComponent {
+import store from "../store";
+import { addNumberAction } from "../store/actionCreators";
+export class Profile extends PureComponent {
   constructor() {
     super();
     this.state = {
-      counter: store.getState().counter.counter,
+      counter: store.getState().counter,
     };
   }
   componentDidMount() {
-    // 在组件挂载时进行store内数据的订阅
     store.subscribe(() => {
-      const state = store.getState().counter;
+      const state = store.getState();
       this.setState({ counter: state.counter });
     });
   }
@@ -25,7 +23,7 @@ export class Home extends PureComponent {
       <div className="App">
         <div className="cal">
           <div className="itemCounter">
-            <h2>Home counter: {counter}</h2>
+            <h2>Profile counter: {counter}</h2>
             <button onClick={(e) => this.addNumber(1)}>+1</button>
             <button onClick={(e) => this.addNumber(5)}>+5</button>
           </div>
@@ -35,4 +33,4 @@ export class Home extends PureComponent {
   }
 }
 
-export default Home;
+export default Profile;
