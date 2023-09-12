@@ -26,7 +26,7 @@ export const fetchUserDataAction = createAsyncThunk("fetct/userdata", async (ext
 })
 const homeSlice = createSlice({
     name: "home",
-    initialState: {
+    initialState: {     
         // 商品数据和用户数据
         goods: [],
         users: []
