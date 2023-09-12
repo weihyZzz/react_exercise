@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
-import connect from "../hoc/connect";
+// import connect from "../hoc/connect";
+import { connect } from "../diyConnect";
 import { addNumber } from "../store/features/counter";
 export class About extends PureComponent {
   render() {
