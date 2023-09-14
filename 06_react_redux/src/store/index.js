@@ -1,8 +1,8 @@
-import { createStore, applyMiddleware, compose, combineReducers } from "redux"
+import { createStore, combineReducers } from "redux"
 
 import counterReducer from "./counter"
 import netdataReducer from "./netdata"
-import thunk from "redux-thunk"
+// import thunk from "redux-thunk"
 
 
 // 将模块reducer合并
@@ -15,12 +15,17 @@ const reducer = combineReducers({
 
 // redux-devtools配置相关
 // trace:true用于开启redux-devtools中的trace功能
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({trace:true}) || compose;
+
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({trace:true}) || compose;
 
 
 // 创建store
-// const store = createStore(reducer, applyMiddleware(thunk))
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+
+// 应用官方的thunk
+// const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+
+const store = createStore(reducer);
+
 
 // 模拟日志中间件
 function log(store) {
@@ -39,5 +44,18 @@ function log(store) {
 }
 log(store)
 
+// 手写实现thunk逻辑,支持派发函数类型的action
+function diyThunk(store) {
+    const next = store.dispatch
+    function dispatchThunk(action) {
+        if (typeof action === "function") {
+            action(store.dispatch, store.getState)
+        } else {
+            next(action)
+        }
+    }
+    store.dispatch = dispatchThunk
+}
+diyThunk(store)
 
 export default store
