@@ -16,6 +16,7 @@ import Category from "./pages/Category";
 import Order from "./pages/Order";
 import HomeSongmenu from "./pages/HomeSongmenu";
 import Detail from "./pages/Detail";
+import User from "./pages/User";
 export function App(props) {
   const navigate = useNavigate();
   function navigateTo(path) {
@@ -28,6 +29,8 @@ export function App(props) {
         <div className="nav">
           <Link to="/home">首页</Link>
           <Link to="/about">关于</Link>
+          <Link to="/user?name=weihy&school=ustb">用户</Link>
+
           {/* 通过useNavigate实现js代码路由跳转 */}
           <button onClick={(e) => navigateTo("/category")}>分类</button>
           <span onClick={(e) => navigateTo("/order")}>订单</span>
@@ -54,6 +57,7 @@ export function App(props) {
           <Route path="/category" element={<Category />} />
           <Route path="/order" element={<Order />} />
           <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/user" element={<User />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </div>
