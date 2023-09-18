@@ -15,6 +15,7 @@ import HomeRanking from "./pages/HomeRanking";
 import Category from "./pages/Category";
 import Order from "./pages/Order";
 import HomeSongmenu from "./pages/HomeSongmenu";
+import Detail from "./pages/Detail";
 export function App(props) {
   const navigate = useNavigate();
   function navigateTo(path) {
@@ -52,6 +53,7 @@ export function App(props) {
           <Route path="/about" element={<About />} />
           <Route path="/category" element={<Category />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/detail/:id" element={<Detail />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </div>
