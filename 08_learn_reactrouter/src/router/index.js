@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom"
-import About from "../pages/About"
+import React from "react"
 import Home from "../pages/Home"
 import HomeRecommends from "../pages/HomeRecommends"
 import HomeRanking from "../pages/HomeRanking"
@@ -7,8 +7,11 @@ import HomeSongmenu from "../pages/HomeSongmenu"
 import Category from "../pages/Category"
 import Order from "../pages/Order"
 import Detail from "../pages/Detail"
-import User from "../pages/User"
+
 import Notfound from "../pages/Notfound"
+// 演示懒加载
+const About = React.lazy(() => import("../pages/About"))
+const User = React.lazy(() => import("../pages/User"))
 const routes = [
     {
         path: "/",
