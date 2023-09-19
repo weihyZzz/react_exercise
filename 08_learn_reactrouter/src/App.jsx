@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink, useNavigate, useRoutes } from "react-router-dom";
 import routes from "./router";
+import "./style.css";
 export function App(props) {
   const navigate = useNavigate();
   function navigateTo(path) {
