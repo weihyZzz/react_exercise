@@ -11,9 +11,6 @@ function withRouter(WrapperComponent) {
         const name = searchParams.get("name")
         const school = searchParams.get("school")
         console.log('name:', name,'school:', school);
-        // console.log('useParams', params);
-        // console.log('useLocation', location);
-        // console.log('useSearchParams', searchParams);
 
         // 2.将searchParams转换为普通obj
         const query = Object.fromEntries(searchParams)

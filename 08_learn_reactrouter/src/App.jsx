@@ -1,22 +1,6 @@
 import React from "react";
-import {
-  Routes,
-  Route,
-  Link,
-  NavLink,
-  Navigate,
-  useNavigate,
-} from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Notfound from "./pages/Notfound";
-import HomeRecommends from "./pages/HomeRecommends";
-import HomeRanking from "./pages/HomeRanking";
-import Category from "./pages/Category";
-import Order from "./pages/Order";
-import HomeSongmenu from "./pages/HomeSongmenu";
-import Detail from "./pages/Detail";
-import User from "./pages/User";
+import { Link, NavLink, useNavigate, useRoutes } from "react-router-dom";
+import routes from "./router";
 export function App(props) {
   const navigate = useNavigate();
   function navigateTo(path) {
@@ -44,22 +28,7 @@ export function App(props) {
       </div>
       <div className="content">
         {/* 配置映射关系， path - Component */}
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<Home />}>
-            {/* 配置嵌套路由 */}
-            <Route path="/home" element={<Navigate to="/home/recommend" />} />
-            <Route path="/home/recommend" element={<HomeRecommends />} />
-            <Route path="/home/ranking" element={<HomeRanking />} />
-            <Route path="/home/songmenu" element={<HomeSongmenu />} />
-          </Route>
-          <Route path="/about" element={<About />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/user" element={<User />} />
-          <Route path="*" element={<Notfound />} />
-        </Routes>
+        {useRoutes(routes)}
       </div>
       <div className="footer">
         <hr />

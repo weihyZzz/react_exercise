@@ -5,6 +5,7 @@ import withRouter from "../hoc/withRouter";
 export class User extends PureComponent {
   render() {
     const { query } = this.props.router;
+    console.log("query,", query);
     return (
       <div>
         <h2>
