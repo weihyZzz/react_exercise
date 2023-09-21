@@ -1,5 +1,9 @@
-import React from "react";
 import { useState } from "react";
+// --------------不可以在普通函数中使用hook----------------
+// function usualFn() {
+//   const [count] = useState(66);
+// }
+
 function CountHook() {
   const [count, setCount] = useState(66);
   return (
