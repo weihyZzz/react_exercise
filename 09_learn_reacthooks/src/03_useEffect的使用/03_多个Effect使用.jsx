@@ -7,6 +7,9 @@ const App = memo(() => {
   });
   useEffect(() => {
     console.log("2.进行事件监听");
+    return () => {
+      // 取消事件监听
+    };
   });
   useEffect(() => {
     console.log("3.执行数据处理逻辑");
