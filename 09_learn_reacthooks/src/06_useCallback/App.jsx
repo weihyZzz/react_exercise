@@ -17,6 +17,11 @@ const Home = memo(function (props) {
 const App = memo(() => {
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState("hello world");
+  // 普通increment
+  // const increment = () => {
+  //   setCount(count + 1);
+  // };
+
   // useCallback优化后的increment
   // const increment = useCallback(
   //   function foo() {
@@ -25,6 +30,7 @@ const App = memo(() => {
   //   },
   //   [count]
   // );
+
   // 进一步优化：useRef 组件多次渲染，返回的是同一个值
   const countRef = useRef();
   countRef.current = count;
@@ -32,10 +38,6 @@ const App = memo(() => {
     console.log("increment");
     setCount(countRef.current + 1);
   }, []);
-  // 普通increment
-  // const increment = () => {
-  //   setCount(count + 1);
-  // };
   return (
     <div>
       <h2>计数:{count}</h2>
