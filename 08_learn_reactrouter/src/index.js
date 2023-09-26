@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <HashRouter>
-      <Suspense>
+      <Suspense fallback={<h3>Loading...</h3>}>
         <App />
       </Suspense>
     </HashRouter>

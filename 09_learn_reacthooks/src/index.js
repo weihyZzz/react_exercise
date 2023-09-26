@@ -10,7 +10,9 @@ import { UserContext, ThemeContext } from "./04_useContext的使用/context"
 // import App from './03_useEffect的使用/04_Effect执行机制'
 
 // import App from "./04_useContext的使用/App"
-import App from "./05_useReducer的使用/App"
+// import App from "./05_useReducer的使用/App"
+
+import App from "./06_useCallback/App"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <UserContext.Provider value={{name: "weihy", school: "ustb"}}>
