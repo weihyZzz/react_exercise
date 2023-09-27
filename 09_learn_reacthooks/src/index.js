@@ -18,7 +18,8 @@ import { UserContext, ThemeContext } from "./04_useContext的使用/context"
 // import App from "./08_useRef的使用/App"
 // import App from "./09_useImperativeHandle/App"
 // import App from "./10_useLayoutEffect使用/01_useEffect和LayoutEffect区别"
-import App from "./10_useLayoutEffect使用/App"
+// import App from "./10_useLayoutEffect使用/App"
+import App from "./11_自定义hook/App"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <UserContext.Provider value={{name: "weihy", school: "ustb"}}>
