@@ -7,7 +7,7 @@ export class Detail extends PureComponent {
     return (
       <div>
         <h2>详情页</h2>
-        <h3>歌曲id:{params.id}</h3>
+        <h3>id:{params.id}</h3>
       </div>
     );
   }

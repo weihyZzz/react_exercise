@@ -21,6 +21,7 @@ export const changeUserAction = (user) => {
     }
 }
 
+// 创建的action不再返回一个对象，而是一个函数，等异步任务有结果后，一般再去分发一个同步的action去真正操作数据
 export const fetchGoodsAction = () => {
     function getGoodsData(dispatch) {
         // 执行异步操作，网络请求
@@ -29,6 +30,7 @@ export const fetchGoodsAction = () => {
             console.log("商品列表", res.data.data.list);
 
             const goods = res.data.data.list;
+            // 这里的changeGoodsAction就是上面注释所说的同步action
             dispatch(changeGoodsAction(goods))
         })
     }

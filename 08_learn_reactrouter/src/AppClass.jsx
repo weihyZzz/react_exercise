@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Notfound from "./pages/Notfound";
 import HomeRecommends from "./pages/HomeRecommends";
 import HomeRanking from "./pages/HomeRanking";
+
 export class App extends PureComponent {
   constructor(props) {
     super(props);

@@ -20,9 +20,11 @@ const HelloWorld = memo(
 );
 const App = memo(() => {
   const inputRef = useRef();
-
+  console.log("1inputRef.current:", inputRef.current);
   function handleDOM() {
     // console.log(inputRef.current);
+    console.log("2inputRef.current:", inputRef.current);
+
     inputRef.current.focus();
     inputRef.current.setValue("123");
   }

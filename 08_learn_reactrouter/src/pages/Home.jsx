@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 import withRouter from "../hoc/withRouter";
 export class Home extends PureComponent {
@@ -7,6 +7,7 @@ export class Home extends PureComponent {
     const { navigate } = this.props.router;
     navigate(path);
   }
+
   render() {
     return (
       <div>

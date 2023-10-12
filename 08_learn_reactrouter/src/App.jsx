@@ -23,6 +23,30 @@ export function App(props) {
             <span>NavLink组：</span>
             <NavLink to="/home">首页</NavLink>
             <NavLink to="/about">关于</NavLink>
+            {/* <NavLink
+              to="/home"
+              style={({ isActive }) => ({ color: isActive ? "orange" : "" })}
+            >
+              首页
+            </NavLink>
+            <NavLink
+              to="/about"
+              style={({ isActive }) => ({ color: isActive ? "orange" : "" })}
+            >
+              关于
+            </NavLink> */}
+            {/* <NavLink
+              to="/home"
+              className={({ isActive }) => (isActive ? "link-active" : "")}
+            >
+              首页
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? "link-active" : "")}
+            >
+              关于
+            </NavLink> */}
           </div>
         </div>
         <hr />
