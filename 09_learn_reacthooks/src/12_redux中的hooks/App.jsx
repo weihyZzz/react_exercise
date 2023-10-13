@@ -1,32 +1,38 @@
 import React, { memo } from "react";
-import { connect } from "react-redux";
+
 import { incrementAction, decrementAction } from "./store/modules/counter";
+import { useDispatch, useSelector } from "react-redux";
+const Home = memo((props) => {
+  const { message } = useSelector((state) => ({
+    message: state.counter.message,
+  }));
+  console.log("Home render");
+  return (
+    <div>
+      <h2>Home message:{message}</h2>
+    </div>
+  );
+});
 const App = memo((props) => {
-  const { count } = props;
-  const { addNumber, subNumber } = props;
+  // 获取redux store中的数据
+  const { count } = useSelector((state) => ({
+    count: state.counter.count,
+  }));
+
+  const dispatch = useDispatch();
   function handleCount(num, isAdd) {
     if (isAdd) {
-      addNumber(num);
-    } else subNumber(num);
+      dispatch(incrementAction(num));
+    } else dispatch(decrementAction(num));
   }
+  console.log("App render");
   return (
     <div>
       <h2>当前计数：{count}</h2>
       <button onClick={(e) => handleCount(1, true)}>+1</button>
       <button onClick={(e) => handleCount(10, false)}>-10</button>
+      <Home />
     </div>
   );
 });
-
-const mapStateToProps = (state) => ({
-  count: state.counter.count,
-});
-const mapDispatchToProps = (dispatch) => ({
-  addNumber(num) {
-    dispatch(incrementAction(num));
-  },
-  subNumber(num) {
-    dispatch(decrementAction(num));
-  },
-});
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
