@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 import { incrementAction, decrementAction } from "./store/modules/counter";
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 const Home = memo((props) => {
   const { message } = useSelector((state) => ({
     message: state.counter.message,
@@ -15,9 +15,14 @@ const Home = memo((props) => {
 });
 const App = memo((props) => {
   // 获取redux store中的数据
-  const { count } = useSelector((state) => ({
-    count: state.counter.count,
-  }));
+  const { count } = useSelector(
+    (state) => (
+      {
+        count: state.counter.count,
+      },
+      shallowEqual
+    )
+  );
 
   const dispatch = useDispatch();
   function handleCount(num, isAdd) {
