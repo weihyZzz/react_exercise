@@ -24,8 +24,8 @@ import { Provider } from "react-redux";
 // import App from "./11_自定义hook/打印生命周期"
 // import App from "./12_redux中的hooks/App"
 // import App from "./13_useId的使用/App";
-import App from "./14_useTransition的使用/App";
-
+// import App from "./14_useTransition的使用/App";
+import App from "./15_useDeferredValue的使用/App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <UserContext.Provider value={{ name: "weihy", school: "ustb" }}>
