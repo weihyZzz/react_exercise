@@ -30,7 +30,6 @@ const App = memo(() => {
   //   },
   //   [count]
   // );
-
   // 进一步优化：useRef 组件多次渲染，返回的是同一个值
   const countRef = useRef();
   countRef.current = count;

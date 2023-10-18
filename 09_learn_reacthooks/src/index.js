@@ -15,6 +15,7 @@ import { Provider } from "react-redux";
 // import App from "./05_useReducer的使用/App"
 
 // import App from "./06_useCallback/App"
+import App from "./06_useCallback/App2";
 // import App from "./07_useMemo的使用/App"
 
 // import App from "./08_useRef的使用/App"
@@ -25,7 +26,7 @@ import { Provider } from "react-redux";
 // import App from "./12_redux中的hooks/App"
 // import App from "./13_useId的使用/App";
 // import App from "./14_useTransition的使用/App";
-import App from "./15_useDeferredValue的使用/App";
+// import App from "./15_useDeferredValue的使用/App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <UserContext.Provider value={{ name: "weihy", school: "ustb" }}>
