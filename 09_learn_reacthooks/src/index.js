@@ -20,11 +20,13 @@ import { Provider } from "react-redux";
 // import App from "./07_useMemo的使用/App2";
 // import App from "./07_useMemo的使用/App3";
 // import App from "./08_useRef的使用/App"
-import App from "./09_useImperativeHandle/App2";
+// import App from "./09_useImperativeHandle/App2";
+// import App from "./09_useImperativeHandle/App3";
 // import App from "./09_useImperativeHandle/App"
 // import App from "./10_useLayoutEffect使用/01_useEffect和LayoutEffect区别"
 // import App from "./10_useLayoutEffect使用/App"
 // import App from "./11_自定义hook/打印生命周期"
+import App from "./11_自定义hook/ App";
 // import App from "./12_redux中的hooks/App"
 // import App from "./13_useId的使用/App";
 // import App from "./14_useTransition的使用/App";
