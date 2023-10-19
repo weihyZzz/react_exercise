@@ -18,8 +18,9 @@ import { Provider } from "react-redux";
 // import App from "./06_useCallback/App2";
 // import App from "./07_useMemo的使用/App";
 // import App from "./07_useMemo的使用/App2";
-import App from "./07_useMemo的使用/App3";
+// import App from "./07_useMemo的使用/App3";
 // import App from "./08_useRef的使用/App"
+import App from "./09_useImperativeHandle/App2";
 // import App from "./09_useImperativeHandle/App"
 // import App from "./10_useLayoutEffect使用/01_useEffect和LayoutEffect区别"
 // import App from "./10_useLayoutEffect使用/App"
