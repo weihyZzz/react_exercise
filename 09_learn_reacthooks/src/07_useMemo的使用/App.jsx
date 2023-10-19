@@ -27,7 +27,6 @@ const App = memo(() => {
   const result = useMemo(() => {
     return calcNumTotal(50);
   }, []);
-
   //   const info = { name: "weihy", age: "20" };
   //   为子组件传递相同内容对象时，采用useMemo进行优化
   const info = useMemo(() => {

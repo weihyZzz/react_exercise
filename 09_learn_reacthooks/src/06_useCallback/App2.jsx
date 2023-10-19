@@ -17,6 +17,7 @@ const App2 = memo(() => {
   const increment = useCallback(function () {
     setCount(countRef.current + 1);
   }, []);
+
   //   const increment = useCallback(
   //     function () {
   //       setCount(count + 1);
