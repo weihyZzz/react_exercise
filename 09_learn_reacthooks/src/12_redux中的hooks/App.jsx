@@ -3,9 +3,12 @@ import React, { memo } from "react";
 import { incrementAction, decrementAction } from "./store/modules/counter";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 const Home = memo((props) => {
-  const { message } = useSelector((state) => ({
-    message: state.counter.message,
-  }));
+  const { message } = useSelector(
+    (state) => ({
+      message: state.counter.message,
+    }),
+    shallowEqual
+  );
   console.log("Home render");
   return (
     <div>
@@ -15,14 +18,9 @@ const Home = memo((props) => {
 });
 const App = memo((props) => {
   // 获取redux store中的数据
-  const { count } = useSelector(
-    (state) => (
-      {
-        count: state.counter.count,
-      },
-      shallowEqual
-    )
-  );
+  const { count } = useSelector((state) => ({
+    count: state.counter.count,
+  }));
 
   const dispatch = useDispatch();
   function handleCount(num, isAdd) {
