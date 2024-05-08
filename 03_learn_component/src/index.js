@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom/client';
 // import App from './05_组件通信-子传父/App'
 // import App from './06_组件通信案例练习/App'
 // import App from './07_组件的插槽实现/App'
-// import App from './08_组件作用域插槽实现/App'
+import App from './08_组件作用域插槽实现/App'
 // import App from './09_非父子通信-Context/App'
 // import App from './10_非父子通信-EventBus/App'
 // import App from './11_setState详细使用/04_setState如何实现同步'
@@ -34,7 +34,7 @@ import ReactDOM from 'react-dom/client';
 // import App from './21_React的严格模式/App'
 // import App from './22_React动画效果/01_CSSTransition/App'
 // import App from './22_React动画效果/02_SwitchTransition/App'
-import App from './22_React动画效果/03_TransitionGroup/App'
+// import App from './22_React动画效果/03_TransitionGroup/App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
